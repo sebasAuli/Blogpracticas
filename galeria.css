@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+   --card-width: 200px;
+   --card-height: 300px;
+   --card-transition-duration: 800ms;
+   --card-transition-easing: ease;
+}
+
+ * {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   font-family: 'Poppins', sans-serif;
+}
+ body {
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(0, 0, 0, 0.787);
+   overflow: hidden;
+}
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 100px;
+}
+header .logo {
+  font-size: 1.5em;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.5s;
+  transform-origin: right;
+}
+#nav-bar {
+	height: auto;
+	width: 100%;
+	position: fixed;
+	z-index: 100;
+	background-color: black;
+}
+.nav-bar {
+	background-color: black;
+	left: 0;
+	top: 0;
+	padding: 1rem 5rem;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.nav-bar .brand p {
+	font-family: 'Flash Back - Demo', sans-serif;
+	font-size: 3rem;
+	color: white;
+}
+  .nav-bar .brand p img {
+    max-width: 25px;
+}
+.nav-bar .nav-list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.nav-bar .nav-list .hamburger {
+	border: 2px solid white;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 70px;
+	width: 70px;
+	transition: .3s ease transform;
+	cursor: pointer;
+}
+.nav-bar .nav-list .hamburger.active {
+	transform: rotate(360deg);
+}
+.nav-bar .nav-list .hamburger.active .bar:before {
+	top: 0;
+	transform: rotate(45deg);
+}
+.nav-bar .nav-list .hamburger.active .bar:after {
+	top: 0;
+	transform: rotate(-45deg);
+}
+.nav-bar .nav-list .hamburger.active .bar {
+	background-color: transparent;
+}
+.nav-bar .nav-list .hamburger .bar {
+	height: 2px;
+	width: 30px;
+	background-color: white;
+	position: relative;
+	display: flex;
+}
+.nav-bar .nav-list .hamburger .bar::before,
+.nav-bar .nav-list .hamburger .bar::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	transition: .3s ease all;
+}
+.nav-bar .nav-list .hamburger .bar::before {
+	top: 8px;
+}
+.nav-bar .nav-list .hamburger .bar::after {
+	bottom: 8px;
+}
+.nav-bar .nav-list ul {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgb(46, 45, 45);
+	padding: 5rem 0;
+	transform: translateY(-100%);
+	transition: .3s ease transform;
+	text-align: center;
+	z-index: -1;
+}
+.nav-bar .nav-list ul li {
+	list-style: none;
+	display: block;
+	position: relative;
+}
+.nav-bar .nav-list ul li:hover:after {
+	transform: translateX(-50%) scale(1);
+}
+.nav-bar .nav-list ul li:after {
+	content: '';
+	position: absolute;
+	width: 5rem;
+	height: .2rem;
+	background-color: white;
+	left: 50%;
+	transform: translateX(-50%) scale(0);
+	bottom: 0;
+	transition: .3s ease transform;
+}
+.nav-bar .nav-list ul li a {
+	font-size: 1.8rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white;
+	display: block;
+	letter-spacing: .15rem;
+	padding: 2rem 3rem;
+}
+.nav-bar .nav-list.open ul {
+	transform: translateY(90px);
+}
+
+ button {
+   border: none;
+   background: none;
+   cursor: pointer;
+}
+ button:focus {
+   outline: none;
+   border: none;
+}
+
+ .app {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+ .app__bg {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   z-index: -5;
+   filter: blur(8px);
+   pointer-events: none;
+   user-select: none;
+   overflow: hidden;
+}
+ .app__bg::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background: #000;
+   z-index: 1;
+   opacity: 0.8;
+}
+ .app__bg__image {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%) translateX(var(--image-translate-offset, 0));
+   width: 180%;
+   height: 180%;
+   transition: transform 1000ms ease, opacity 1000ms ease;
+   overflow: hidden;
+}
+ .app__bg__image img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+ .app__bg__image.current--image {
+   opacity: 1;
+   --image-translate-offset: 0;
+}
+ .app__bg__image.previous--image, .app__bg__image.next--image {
+   opacity: 0;
+}
+ .app__bg__image.previous--image {
+   --image-translate-offset: -25%;
+}
+ .app__bg__image.next--image {
+   --image-translate-offset: 25%;
+}
+ .cardList {
+   position: absolute;
+   width: calc(3 * var(--card-width));
+   height: auto;
+}
+ .cardList__btn {
+   --btn-size: 35px;
+   width: var(--btn-size);
+   height: var(--btn-size);
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   z-index: 100;
+}
+ .cardList__btn.btn--left {
+   left: -5%;
+}
+ .cardList__btn.btn--right {
+   right: -5%;
+}
+ .cardList__btn .icon {
+   width: 100%;
+   height: 100%;
+}
+ .cardList__btn .icon svg {
+   width: 100%;
+   height: 100%;
+}
+ .cardList .cards__wrapper {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   perspective: 1000px;
+}
+ .card {
+   --card-translateY-offset: 100vh;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%) translateX(var(--card-translateX-offset)) translateY(var(--card-translateY-offset)) rotateY(var(--card-rotation-offset)) scale(var(--card-scale-offset));
+   display: inline-block;
+   width: var(--card-width);
+   height: var(--card-height);
+   transition: transform var(--card-transition-duration) var(--card-transition-easing);
+   user-select: none;
+}
+ .card::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background: #000;
+   z-index: 1;
+   transition: opacity var(--card-transition-duration) var(--card-transition-easing);
+   opacity: calc(1 - var(--opacity));
+}
+ .card__image {
+   position: relative;
+   width: 100%;
+   height: 100%;
+}
+ .card__image img {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+ .card.current--card {
+   --current-card-rotation-offset: 0;
+   --card-translateX-offset: 0;
+   --card-rotation-offset: var(--current-card-rotation-offset);
+   --card-scale-offset: 1.2;
+   --opacity: 0.8;
+}
+ .card.previous--card {
+   --card-translateX-offset: calc(-1 * var(--card-width) * 1.1);
+   --card-rotation-offset: 25deg;
+}
+ .card.next--card {
+   --card-translateX-offset: calc(var(--card-width) * 1.1);
+   --card-rotation-offset: -25deg;
+}
+ .card.previous--card, .card.next--card {
+   --card-scale-offset: 0.9;
+   --opacity: 0.4;
+}
+ .infoList {
+   position: absolute;
+   width: calc(3 * var(--card-width));
+   height: var(--card-height);
+   pointer-events: none;
+}
+ .infoList .info__wrapper {
+   position: relative;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-end;
+   perspective: 1000px;
+   transform-style: preserve-3d;
+}
+ .info {
+   margin-bottom: calc(var(--card-height) / 8);
+   margin-left: calc(var(--card-width) / 1.5);
+   transform: translateZ(2rem);
+   transition: transform var(--card-transition-duration) var(--card-transition-easing);
+}
+ .info .text {
+   position: relative;
+   font-family: "Montserrat";
+   font-size: calc(var(--card-width) * var(--text-size-offset, 0.2));
+   white-space: nowrap;
+   color: #fff;
+   width: fit-content;
+}
+ .info .name, .info .location {
+   text-transform: uppercase;
+}
+ .info .location {
+   font-weight: 800;
+}
+ .info .location {
+   --mg-left: 40px;
+   --text-size-offset: 0.12;
+   font-weight: 600;
+   margin-left: var(--mg-left);
+   margin-bottom: calc(var(--mg-left) / 2);
+   padding-bottom: 0.8rem;
+}
+ .info .location::before, .info .location::after {
+   content: "";
+   position: absolute;
+   background: #fff;
+   left: 0%;
+   transform: translate(calc(-1 * var(--mg-left)), -50%);
+}
+ .info .location::before {
+   top: 50%;
+   width: 20px;
+   height: 5px;
+}
+ .info .location::after {
+   bottom: 0;
+   width: 60px;
+   height: 2px;
+}
+ .info .description {
+   --text-size-offset: 0.065;
+   font-weight: 500;
+}
+ .info.current--info {
+   opacity: 1;
+   display: block;
+}
+ .info.previous--info, .info.next--info {
+   opacity: 0;
+   display: none;
+}
+ .loading__wrapper {
+   position: fixed;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background: #000;
+   z-index: 200;
+}
+ .loading__wrapper .loader--text {
+   color: #fff;
+   font-family: "Montserrat";
+   font-weight: 500;
+   margin-bottom: 1.4rem;
+}
+ .loading__wrapper .loader {
+   position: relative;
+   width: 200px;
+   height: 2px;
+   background: rgba(255, 255, 255, 0.25);
+}
+ .loading__wrapper .loader span {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background: #f00;
+   transform: scaleX(0);
+   transform-origin: left;
+}
+ @media only screen and (min-width: 800px) {
+   :root {
+     --card-width: 250px;
+     --card-height: 400px;
+  }
+}
+ .support {
+   position: absolute;
+   right: 10px;
+   bottom: 10px;
+   padding: 10px;
+   display: flex;
+}
+ .support a {
+   margin: 0 10px;
+   color: #fff;
+   font-size: 1.8rem;
+   backface-visibility: hidden;
+   transition: all 150ms ease;
+   
+}
+
+ .support a:hover {
+   transform: scale(1.1);
+ }
+   .btn-flotante {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 5px;
+    letter-spacing: 2px; 
+    background-color: #E91E63;
+    padding: 18px 30px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    transition: all 300ms ease 0ms;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+  }
+  .btn-flotante:hover {
+    background-color: #2c64a5;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-7px);
+  }
+  @media only screen and (max-width: 600px) {
+     .btn-flotante {
+      font-size: 14px;
+      padding: 12px 20px;
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+  .blog-slider__button {
+    position: absolute;
+    top: 90%;
+    left: 20%;
+    transform: translate(-50%,-50%);
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background:#E91E63;
+    background-size: 500%;
+    border-radius: 5px;
+ }
+ .blog-slider__button:hover {
+   animation: animate 8s linear infinite;
+ }

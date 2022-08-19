@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Acerca de mi</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="info1.css">
+    <link rel="shortcut icon" href="recursos/icono.ico">
+</head>	
+<body>
+    <section class="exhivir">
+        <header>
+          <h2 class="logo">información</h2>
+          <div class="toggle"></div>
+        </header>
+        <video src="recursos/11.gif" muted loop autoplay></video>
+        <div class="cubrir"></div>
+        <div class="texto">
+          <h2>Acerca de mi. </h2> 
+          <h3>Quién soy:</h3>
+          <p>Mi nombre es <strong>LAURA CAMILA MURCIA SALAS</strong>, <br>
+          Estudiante de licenciatura en educacion infantil de la Universidad del Tolima
+          acontinuacion podra encontrar la carta de Presentacion
+          </p>
+          <a href="recursos/carta presentación laura.docx">Carta de Presentacion</a>
+        </div>
+        
+        </ul>
+      </section>
+      <div class="menu">
+        <ul>
+            <li><a href="BlogExp.html">Inicio</a></li>
+            <li><a href="documentos.html">Documentos</a></li>
+            <li><a href="galeria.html">Diario</a></li>
+        </ul>
+      </div>
+      <script>
+           const menuToggle = document.querySelector('.toggle');
+      const showcase = document.querySelector('.exhivir');
+
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        showcase.classList.toggle('active');
+      })
+      </script>
+</body>
+</html>

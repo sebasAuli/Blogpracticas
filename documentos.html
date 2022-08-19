@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentos</title>
+  <link rel="icon" href="recursos/icono.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
+  <link rel="stylesheet" href="documentos.css"/>
+</head>
+
+<body>
+  <header>
+		<p class="logo">Documentos</p>
+		<ul>
+			<li><a href="galeria.html">Diario</a></li>
+			<li><a href="info1.html">Acerca de Mi</a></li>
+		  </ul>
+		</div>
+	</header>
+<a class="btn-flotante" href="BlogExp.html">Inicio</a>
+<div class="blog-slider">
+  <div class="blog-slider__wrp swiper-wrapper">
+
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="recursos/1e.jpeg">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code"></span>
+        <div class="blog-slider__title">Carta de Presentacion</div>
+        <div class="blog-slider__text"></div>
+        <a href="recursos/carta presentación laura.docx" download="PPI Oda" class="blog-slider__button" >Descargar</a>
+      </div>
+    </div>
+    
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="recursos/2e.jpeg">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code"></span>
+        <div class="blog-slider__title">Diario Pedagogico</div>
+        <div class="blog-slider__text"> </div>
+        <a href="recursos/DIARIO PEDAGÓGICO.docx" download="PPI Oda" class="blog-slider__button" >Descargar</a>
+      </div>
+    </div>
+    
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="recursos/3e.jpeg">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code"></span>
+        <div class="blog-slider__title">Ficha de Compromiso: Practica Pedagógica</div>
+        <div class="blog-slider__text"></div>
+        <a href="recursos/FICHA COMPROMISO PRÁCTICA LAURA.docx" download="Juego secreto" class="blog-slider__button" >Descargar</a>
+      </div>
+    </div>
+
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="recursos/4e.jpeg">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code"></span>
+        <div class="blog-slider__title">FICHA DE EVALUACIÓN DE LA PRÁCTICA PEDAGÓGICA I</div>
+        <div class="blog-slider__text"></div>
+        <a href="recursos/FICHA PRÁCTICA LAURA.docx" download="Juego secreto" class="blog-slider__button" >Descargar</a>
+      </div>
+    </div>
+
+    <div class="blog-slider__item swiper-slide">
+      <div class="blog-slider__img">
+        <img src="recursos/4e.jpeg">
+      </div>
+      <div class="blog-slider__content">
+        <span class="blog-slider__code"></span>
+        <div class="blog-slider__title">Certificacion de Practicas</div>
+        <div class="blog-slider__text"></div>
+        <a href="recursos/Castillo.pdf" download="Juego secreto" class="blog-slider__button" >Descargar</a>
+      </div>
+    </div>
+  </div>
+  <div class="blog-slider__pagination"></div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
+<script>
+  var swiper = new Swiper('.blog-slider', {
+      spaceBetween: 30,
+      effect: 'fade',
+      loop: true,
+      mousewheel: {
+        invert: false,
+      },
+      pagination: {
+        el: '.blog-slider__pagination',
+        clickable: true,
+      }
+    });
+</script>
+</body>
+</html>

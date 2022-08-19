@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/poppins');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+section.activo::before {
+    background: #8b6abe;
+    box-shadow: 0 0 0 1200px #7ff9c7;
+}
+section { 
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+    background: #8b6abe;
+    overflow-x: hidden;
+}
+section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: #7ff9c7;
+    transition: 1s;  
+}
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+}
+header .logo {
+    font-size: 1.5em;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.5s;
+    transform-origin: right;
+}
+header .activarMenu {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: url(menu.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30px;
+    cursor: pointer;
+}
+header .activarMenu.activo {
+    background: url(menuCerrado.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+    cursor: pointer;
+}
+.Laura {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    right: 200px;
+    max-width: 300px;
+    
+}
+.contenido {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: 0.5s;
+    transform-origin: right;
+}
+.contenido .cajaContenido {
+    position: relative;
+    max-width: 600px;
+}
+.contenido .cajaContenido h4 {
+    font-weight: 400;
+    color: #7ff9c7;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+.contenido .cajaContenido h2 {
+    font-size: 4em;
+    line-height: 1em;
+    color: #fafcfb;
+}
+.contenido .cajaContenido h3 {
+    font-weight: 300;
+    color: #fff;
+    font-size: 2em;
+    line-height: 1.5em;
+}
+.contenido .cajaContenido p {
+    font-size: 1em;
+    color: #fff;
+    margin: 10px 0 20px;
+    font-weight: 300;
+}
+.contenido .cajaContenido a {
+    display: inline-block;
+    color: #fff;
+    padding: 10px 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.5s;
+    background: #ed325f;
+    letter-spacing: 2px;
+}
+.contenido .cajaContenido a:last-child {
+    background-color: #1ede6d;
+    color: #111;
+}
+.contenido .cajaContenido a:hover {
+    letter-spacing: 4px;
+    background: #fff;
+    color: #111;
+}
+.redesSociales {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: 0.5s;
+    transform-origin: right;
+}
+.redesSociales li {
+    list-style: none;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+.redesSociales li:hover a {
+    background: #fff;
+}
+.redesSociales li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.redesSociales li a img {
+    filter: invert(1);
+    transform: scale(0.6);
+}
+.redesSociales li:hover a img {
+    filter: invert(1);
+}
+.banner.activo .redesSociales,
+.banner.activo .contenido,
+.banner.activo .logo {
+    transform: scale(0);
+    transform-origin: left;
+}
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 100px;
+    transition: 0.5s;
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+}
+.banner.activo .menu {
+    visibility: visible;
+    opacity: 1;
+}
+.menu li {
+    list-style: none;
+}
+.menu li a {
+    color: #08381b;
+    text-decoration: none;
+    font-size: 1.5em;
+    padding: 5px 10px;
+    margin: 5px 0;
+    display: inline-block;
+    transition: 0.2s ease-in-out;
+}
+.menu li a:hover {
+    letter-spacing: 6px;
+    background: #fff;
+    color: #161a23;
+}
+.decoracion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.2s;
+    pointer-events: none;
+}
+.banner.activo .decoracion {
+    visibility: hidden;
+    opacity: 0;
+}
+/* Hora de hacerlo responsive. (profe, te quiero) */
+@media (max-width: 991px) {
+    .decoracion {
+        visibility: hidden;
+        opacity: 0;
+    }
+    header {
+        padding: 20px 40px;
+    }
+    section {
+        padding: 0 40px;
+    }
+    section::before {
+        opacity: 0;
+    }
+    .contenido {
+        margin: 50px 0;
+    }
+    .david {
+        right: -100px;
+        opacity: 0.3;
+    }
+    .banner.activo .david {
+        opacity: 0 !important;
+    }
+    .menu{
+        align-items: center;
+        padding-left: 0;
+    }
+    .menu li a {
+        color: #fff;
+    }
+    .contenido .cajaContenido h2 {
+        font-size: 2.2em;
+    }
+    .contenido .cajaContenido h3 {
+        font-size: 1.5em;
+    } 
+    .contenido .cajaContenido a {
+        padding: 6px 15px;
+        margin-right: 5px;
+    }
+    .banner.activo .redesSociales,
+    .banner.activo .contenido,
+    .banner.activo .logo,
+    .banner.activo .david
+    {
+    transition: 0s;
+}
+}

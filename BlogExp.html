@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="stile.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+<body>
+    <section class="banner">
+        <header>
+            <p class="logo">Mi blog de evidencias.</p>
+            <div class="activarMenu"></div>
+        </header>
+        <img src="recursos/LauraM.png" class="Laura">
+        <div class="contenido">
+            <div class="cajaContenido">
+                <h4>Hola,</h4>
+                <h2>Soy Laura Murcia</h2>
+                <h3>Estudiante de  Lic. en educacion infantil</h3>
+                <p>Con este blog deseo dar a conocer las evidencias de practicas,
+                    con ellas las fotos que aportaran como evidencias del trabajo,algunas observaciones y tambien las conclusion.
+                </p>
+                <a href="galeria.html">Diario</a>
+                <a href="info1.html">Presentacion</a>
+            </div>
+        </div>
+        <ul class="redesSociales">
+            <li><a href="https://www.instagram.com/laura.murcia10/" target="_BLANK"><img src="recursos/instagram.png"></a></li>
+            <li><a href="lmurcias@ut.edu.co" target="_BLANK"><img src="recursos/mail.png"></a></li>
+        </ul>
+        <ul class="menu">
+            
+            <li><a href="documentos.html">Documentos</a></li>
+            <li><a href="galeria.html">Diario</a></li>
+            <li><a href="info1.html">Acerca de mí</a></li>
+
+        </ul>
+    <img src="recursos/1.png" class="decoracion" data-speed="8">
+    <img src="recursos/2.png" class="decoracion" data-speed="6">
+    <img src="recursos/4.png" class="decoracion" data-speed="-6">
+    </section>
+    <script>
+        const activarMenu = document.querySelector('.activarMenu');
+        const banner = document.querySelector('.banner');
+        activarMenu.onclick = function(){
+            activarMenu.classList.toggle('activo');
+            banner.classList.toggle('activo');
+        }
+        function parallax (e) {
+            this.querySelectorAll('.decoracion').forEach(Layer => {
+                const speed = Layer.getAttribute('data-speed');
+                const x = (window.innerWidth - e.pageX*speed)/100;
+                Layer.style.transform = `translateX(${x}px)`
+            });
+        }
+        document.addEventListener("mousemove",parallax);
+    </script>
+</body>
+</html>
